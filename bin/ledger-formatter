@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'ledger-tools'
+require 'ledger/tools'
 
 options = Ledger::OptionParser.parse_formatter_options
 ledger  = Ledger::Formatter.new

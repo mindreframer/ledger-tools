@@ -28,7 +28,7 @@ module Ledger
 
     def pretty_print
 
-      max = (get_max_distance + 12)
+      max = (longest_account_name + 12)
       transactions.map{|x| x.indented_source(max)}.join("\n\n")
     end
 
@@ -36,7 +36,7 @@ module Ledger
       @transactions ||= []
     end
 
-    def get_max_distance
+    def longest_account_name
       transactions.map{|x| x.max_account_length}.max
     end
   end

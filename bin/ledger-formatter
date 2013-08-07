@@ -1,7 +1,11 @@
 #!/usr/bin/env ruby
 
-options = parse_command_line
-ledger  = Ledger.new
+require 'rubygems'
+require 'ledger-tools'
+
+options = Ledger::OptionParser.parse_formatter_options
+ledger  = Ledger::Formatter.new
+
 ledger.fill_from_file(options.file)
 
 ledger.sort!

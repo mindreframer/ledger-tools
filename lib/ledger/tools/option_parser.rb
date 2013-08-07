@@ -4,10 +4,10 @@ module Ledger
     require 'optparse'
 
     def self.parse_formatter_options(argv = ::ARGV)
-      o = OpenStruct.new(:file => 'protocol.ledger')
+      o = OpenStruct.new(:file => nil)
 
       # parse
-      OptionParser.new do |opts|
+      ::OptionParser.new do |opts|
         opts.banner = "Usage: ledger-formatter --path /file/that/you/want.ledger"
         opts.on '-f', '--file=LEDGER_FILE', 'Ledger file to format' do |v|
           o.file = v
@@ -20,7 +20,7 @@ module Ledger
       end.parse! argv
 
       unless o.file
-        puts  "Please provide path to ledger file!"
+        puts  "Please provide path to ledger file! Use `-f` for this. "
         exit
       end
       o

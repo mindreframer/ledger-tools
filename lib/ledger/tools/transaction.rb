@@ -18,7 +18,7 @@ module Ledger
     end
 
     def indented_source(distance=40)
-      single_transactions = splitted_source
+      single_transactions = split_source
       header_array        = single_transactions[0..0]
 
       # indent them all
@@ -30,8 +30,8 @@ module Ledger
       (header_array + indented_transactions).join("\n")
     end
 
-    def splitted_source
-      @splitted_source ||= source.split("\n")
+    def split_source
+      @split_source ||= source.split("\n")
     end
 
 
@@ -60,13 +60,13 @@ module Ledger
 
     def max_account_length
       begin
-        splitted_source[1..-1].map{|x|
+        split_source[1..-1].map{|x|
           return 0 if is_comment?(x)
           x.strip.split(/\s{2,}/, 2).first.size
         }.max
       rescue Exception => e
         binding.pry
-        puts "******* ERROR on:  \n#{splitted_source.join("\n")}"
+        puts "******* ERROR on:  \n#{split_source.join("\n")}"
         return 0
       end
     end

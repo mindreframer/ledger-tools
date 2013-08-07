@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Ledger::Tools::VERSION
   spec.authors       = ["Roman Heinrich"]
   spec.email         = ["roman.heinrich@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{A couple of scripts for Ledger-CLI}
+  spec.summary       = spec.description
   spec.homepage      = ""
   spec.license       = "MIT"
 

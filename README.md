@@ -1,24 +1,24 @@
 # Ledger::Tools
 
-TODO: Write a gem description
+  Some scripts arount [Ledger-CLI](http://www.ledger-cli.org/)
+
+    - ledger-formatter:
+        will sort and indent your ledger file.
+
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'ledger-tools'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install ledger-tools
 
 ## Usage
 
-TODO: Write usage instructions here
+### In your libraries
+    > require 'ledger/tools'
+
+
+### ledger-formatter
+    $ ledger-formatter -f /your/ledger/data.ledger
+
 
 ## Contributing
 

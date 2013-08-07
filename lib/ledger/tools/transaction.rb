@@ -13,7 +13,6 @@ module Ledger
 
     def date
       @date ||= begin
-        s = source.split( ).first
         DateTime.parse(source.split( ).first)
       end
     end

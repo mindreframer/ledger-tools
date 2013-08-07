@@ -65,7 +65,6 @@ module Ledger
           x.strip.split(/\s{2,}/, 2).first.size
         }.max
       rescue Exception => e
-        binding.pry
         puts "******* ERROR on:  \n#{split_source.join("\n")}"
         return 0
       end

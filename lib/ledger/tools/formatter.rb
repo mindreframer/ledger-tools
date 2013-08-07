@@ -1,42 +1,5 @@
 # -*- coding: UTF-8 -*-
 
-# require 'ostruct'
-# require 'optparse'
-
-
-# def self.parse_command_line(argv = ::ARGV)
-#   o = OpenStruct.new(:file => 'protocol.ledger')
-
-#   # parse
-#   OptionParser.new do |opts|
-#     opts.banner = "Usage: ledger-formatter --path /file/that/you/want.ledger"
-#     opts.on '-f', '--file=LEDGER_FILE', 'Ledger file to format' do |v|
-#       o.file = v
-#     end
-
-#     opts.on("-t", "--test", "Self-Test") do |v|
-#       o.selftest = v
-#     end
-
-#     opts.on_tail '-h', '--help', 'Print this help' do
-#       puts opts
-#       exit 0
-#     end
-#   end.parse! argv
-
-#   return o if o.selftest
-
-#   unless o.file
-#     puts  "Please provide path to ledger file!"
-#     exit
-#   end
-#   o
-# end
-
-
-
-
-
 module Ledger
   class Formatter
     attr_accessor :transactions

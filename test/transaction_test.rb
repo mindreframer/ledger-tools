@@ -41,12 +41,13 @@ describe "Ledger::Transaction" do
 
   describe :indented_source do
     it "works" do
-      expected = <<-EXP.deindent
+      expected = <<-EXP.indent_to_least_space
       2013/07/05 SpreeGold
         Expenses:Leasure:EatingOut       4.90 Euro
         Assets:Checking
       EXP
-      @transaction.indented_source(40).must_equal expected[0..-2]
+      #binding.pry
+      @transaction.indented_source(40).must_equal expected
     end
   end
 

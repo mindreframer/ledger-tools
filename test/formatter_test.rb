@@ -91,7 +91,7 @@ describe "Ledger" do
         describe :pretty_print do
           it "supports formatting" do
             @ledger.fill_from_string(@ledger_content_for_max)
-            @ledger.pretty_print.must_equal @ledger_content_for_max_formatted[0..-2]
+            @ledger.pretty_print.must_equal @ledger_content_for_max_formatted
           end
         end
       end

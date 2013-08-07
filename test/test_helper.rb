@@ -1,7 +1,6 @@
-require 'rubygems'
 require 'bundler'
-#Bundler.setup(:default, :test)
-Bundler.setup(:default)
+require 'pry'
+Bundler.setup(:default, :test)
 
 
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
@@ -20,15 +19,17 @@ class String
   end
 
   def indent_to_least_space
-    require 'pry'
-    binding.pry
-    puts "****** INDENTING #{self}"
     lines         = self.split("\n")
-    min           = lines.map{|x| x.scan(/^\s*/).first.size}.min
+    min           = lines.map{|x|
+      if x.strip == ""
+        100
+      else
+        x.scan(/^\s*/).first.size
+      end
+    }.min
     shorter_lines = lines.map{|x| x[min..-1]}
 
     res = shorter_lines.join("\n")
-    puts "******* REMOVED #{min} spaces"
     res
   end
 end

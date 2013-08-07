@@ -6,11 +6,11 @@ Bundler.setup(:default, :test)
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require File.expand_path('../../lib/ledger/tools', __FILE__)
 
-## for unit tests
-#require 'mocha'
-require 'minitest/autorun'
-require 'minitest/spec'
-require 'minitest/mock'
+unless ARGV[0] == '-r'
+  require 'minitest/autorun'
+  require 'minitest/spec'
+  require 'minitest/mock'
+end
 
 def fixture(file)
   File.read("test/fixtures/#{file}")

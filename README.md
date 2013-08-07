@@ -19,6 +19,12 @@
 ### ledger-formatter
     $ ledger-formatter -f /your/ledger/data.ledger
 
+## Run tests
+    $ sh/test
+
+## Start `pry`-console with ledger-tools loaded
+    $ sh/c
+
 
 ## Contributing
 

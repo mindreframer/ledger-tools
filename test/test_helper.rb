@@ -12,6 +12,10 @@ require 'minitest/autorun'
 require 'minitest/spec'
 require 'minitest/mock'
 
+def fixture(file)
+  File.read("test/fixtures/#{file}")
+end
+
 ## for fixtures
 class String
   def deindent

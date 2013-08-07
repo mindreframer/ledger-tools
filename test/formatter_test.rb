@@ -9,48 +9,11 @@ describe "Ledger" do
 
       describe "parsing" do
         before do
-          @ledger_content  = <<-TRA.indent_to_least_space
-          2013/07/05 SpreeGold
-            Expenses:Leasure:EatingOut         4.90 Euro
-            Assets:Checking
-
-          2013/07/06 Turkish Restaurant
-            Expenses:Leasure:EatingOut         13.00 Euro
-            Assets:Checking
-
-          TRA
-          @ledger_content_unsorted  = <<-TRA.indent_to_least_space
-          2013/08/05 SpreeGold
-            Expenses:Leasure:EatingOut         4.90 Euro
-            Assets:Checking
-
-          2013/07/06 Turkish Restaurant
-            Expenses:Leasure:EatingOut         13.00 Euro
-            Assets:Checking
-
-          TRA
-
-          @ledger_content_for_max  = <<-TRA.indent_to_least_space
-          2013/08/05 SpreeGold
-            Expenses:Leasure:EatingOut:Vegetarian         4300.90 Euro
-            Assets:Checking
-
-          2013/07/06 Turkish Restaurant
-            Expenses:Leasure:EatingOut    13.00 Euro
-            Assets:Checking
-
-          TRA
-
-          @ledger_content_for_max_formatted  = <<-TRA.indent_to_least_space
-          2013/08/05 SpreeGold
-            Expenses:Leasure:EatingOut:Vegetarian  4300.90 Euro
-            Assets:Checking
-
-          2013/07/06 Turkish Restaurant
-            Expenses:Leasure:EatingOut               13.00 Euro
-            Assets:Checking
-          TRA
-
+          @ledger_content                   = fixture('ledger-default.csv')
+          @ledger_content_unsorted          = fixture("ledger-unsorted.csv")
+          @ledger_content_for_max           = fixture('ledger-long-account-name.csv')
+          @ledger_content_for_max           = fixture('ledger-long-account-name-formatted.csv')
+          @ledger_content_for_max_formatted = fixture('ledger-long-account-name-formatted.csv')
         end
 
         describe :fill_from_string do
@@ -80,11 +43,11 @@ describe "Ledger" do
           end
         end
 
-        describe :get_max_distance do
+        describe :longest_account_name do
           it "returns the length of longest account name from transactions" do
             str = "Expenses:Leasure:EatingOut:Vegetarian"
             @ledger.fill_from_string(@ledger_content_for_max)
-            @ledger.get_max_distance.must_equal str.size
+            @ledger.longest_account_name.must_equal str.size
           end
         end
 

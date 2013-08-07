@@ -25,6 +25,10 @@
 ### Start `pry`-console with ledger-tools loaded
     $ sh/c
 
+### Start `pry`-console with ledger-tools loaded (in test `ENV`)
+    $ sh/c test
+
+
 
 ## Contributing
 

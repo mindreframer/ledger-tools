@@ -1,1 +1,9 @@
-pry -r ./sh/env.rb
+#!/usr/bin/env bash
+
+if [ "$1" != 'test' ]; then
+  echo "LOADING LEDGER-TOOLS(DEV)"
+  pry -r ./sh/env.rb
+else
+  echo "LOADING LEDGER-TOOLS(TEST)"
+  pry -r ./test/test_helper.rb
+fi

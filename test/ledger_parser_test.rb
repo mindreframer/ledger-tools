@@ -37,6 +37,17 @@ describe "Ledger::LedgerParser" do
   end
 
   describe :clean_money do
+    before do
+      @ledger = Ledger::LedgerParser.new fixture("ledger-default.csv")
+    end
+
+    it "works with US formating" do
+      @ledger.clean_money("$ 44.45").must_equal 44.45
+    end
+
+    it "works with EU formatting" do
+      @ledger.clean_money("44,45 Euro", :comma_separates_cents => true).must_equal 44.45
+    end
 
   end
 end

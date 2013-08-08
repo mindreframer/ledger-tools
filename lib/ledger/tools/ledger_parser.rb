@@ -52,9 +52,11 @@ module Ledger
       accounts
     end
 
-    def clean_money(money)
+    def clean_money(money, options ={})
+      cent_separator = options[:comma_separates_cents] ? "," : "."
       return nil if money.nil? || money.length == 0
-      money.gsub(/[^0-9.-]/, '').to_f
+      money_regex = %r[[^0-9#{cent_separator}-]]
+      money.gsub(money_regex, '').gsub(cent_separator, '.').to_f
     end
   end
 end

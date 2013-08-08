@@ -87,8 +87,13 @@ module Ledger
     # - accounts
     def parse
       res = {}
-      res[:date]  = date
+      res[:date] = date
       res[:desc] = split_source[0].split(" " ,2).last
+      accounts   = []
+      split_source[1..-1].each do |line|
+        accounts << {:name => line}
+      end
+      res[:accounts] = accounts
       res
     end
   end

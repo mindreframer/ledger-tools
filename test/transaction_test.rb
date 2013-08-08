@@ -72,10 +72,17 @@ describe "Ledger::Transaction" do
   end
 
   describe :parse do
-    it "works" do
+    it "parses transaction to ruby hash" do
+      expected = {
+        :date => DateTime.new(2013, 7,5),
+        :desc => "SpreeGold",
+        :accounts => [
+          {:name => "Expenses:Leasure:EatingOut         4.90 Euro"},
+          {:name => "Assets:Checking"}
+        ]
+      }
       res = @transaction.parse
-      res[:date].must_equal DateTime.new(2013, 7,5)
-      res[:desc].must_equal "SpreeGold"
+      res.must_equal expected
     end
   end
 end

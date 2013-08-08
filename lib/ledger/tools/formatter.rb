@@ -16,10 +16,25 @@ module Ledger
     end
 
     def parse_transactions_from_string(str)
-      simple_regex = /^2/  # hacky, we search for digit "2" in the beginning
-      # split -> remove blanks -> prepend with "2"
-      res = str.split(simple_regex).select{|x| x != ""}.map{|x| "2#{x}"}
+      res = split_by_transactions(str)
       res.map{|x| Transaction.new(x)}
+    end
+
+    def split_by_transactions(str)
+      # idea:
+      # transaction is identified by a digit at beginning.
+      # acounts are indented. to retain both (digit + rest of a single transaction), we
+      # scan and split by the same regex and combine result afterwards
+      front_digits = str.scan(/^\d{1}/)
+      rest         = str.split(/^\d{1}/)
+
+      # remove blanks
+      rest         = rest.select{|x| x!= ""}
+      front_digits = front_digits.select{|x| x!= ""}
+
+      res = []
+      rest.each_with_index{|x, idx| res<<"#{front_digits[idx]}#{rest[idx]}" }
+      res
     end
 
     def sort!

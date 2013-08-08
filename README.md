@@ -1,4 +1,5 @@
 # Ledger::Tools
+[![Build Status](https://travis-ci.org/mindreframer/ledger-tools.png)](https://travis-ci.org/mindreframer/ledger-tools)
 
 
 
@@ -9,7 +10,6 @@
         will sort and indent your ledger file.
 
 
-[![Build Status](https://travis-ci.org/mindreframer/ledger-tools.png)](https://travis-ci.org/mindreframer/ledger-tools)
 
 
 ## Installation

@@ -57,7 +57,6 @@ module Ledger
       end
     end
 
-
     def max_account_length
       begin
         split_source[1..-1].map{|x|
@@ -73,6 +72,21 @@ module Ledger
     def is_comment?(line)
       stripped = line.strip
       stripped == "" || COMMENT_CHARS.any?{|x| stripped.start_with?(x)}
+    end
+
+
+
+
+
+    ######## rather new approach
+
+    # will return hash with
+    # - date
+    # - payee name
+    # - comment, if present
+    # - accounts
+    def parse
+
     end
   end
 end

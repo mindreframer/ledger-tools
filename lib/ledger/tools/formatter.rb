@@ -33,7 +33,7 @@ module Ledger
       front_digits = front_digits.select{|x| x!= ""}
 
       res = []
-      rest.each_with_index{|x, idx| res<<"#{front_digits[idx]}#{rest[idx]}" }
+      rest.each_with_index{|x, idx| res << "#{front_digits[idx]}#{rest[idx]}" }
       res
     end
 

@@ -1,0 +1,5 @@
+# http://about.travis-ci.org/docs/user/languages/ruby/
+language: ruby
+rvm:
+  - "1.9.3"
+script: sh/test

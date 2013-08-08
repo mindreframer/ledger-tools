@@ -4,7 +4,7 @@
 
 
 
-  Some scripts arount [Ledger-CLI](http://www.ledger-cli.org/)
+  Some scripts around [Ledger-CLI](http://www.ledger-cli.org/)
 
     - ledger-formatter:
         will sort and indent your ledger file.

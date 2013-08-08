@@ -86,7 +86,10 @@ module Ledger
     # - comment, if present
     # - accounts
     def parse
-
+      res = {}
+      res[:date]  = date
+      res[:desc] = split_source[0].split(" " ,2).last
+      res
     end
   end
 end

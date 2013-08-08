@@ -70,4 +70,12 @@ describe "Ledger::Transaction" do
       @transaction.max_account_length.must_equal 26
     end
   end
+
+  describe :parse do
+    it "works" do
+      res = @transaction.parse
+      res[:date].must_equal DateTime.new(2013, 7,5)
+      res[:desc].must_equal "SpreeGold"
+    end
+  end
 end
